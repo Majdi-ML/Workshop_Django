@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Livres</title>
+  </head>
+  <body>
+    {% if livre %}
+    <table border="1" align="center" width="80%">
+      <caption>
+        List des livres
+      </caption>
+      <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Date publication</th>
+        <th>Image</th>
+        <th>Auteur</th>
+      </tr>
+      {% for l in livre %}
+      <tr>
+        <td>{{ l.titre }}</td>
+        <td>{{l.description}}</td>
+        <td>{{ l.date_publication}}</td>
+        <td><img src="{{ l.image.url }} " width="10%" /></td>
+        <td>{{l.auteur}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <h1>0 livres</h1>
+    {% endif %}
+  </body>
+</html>
